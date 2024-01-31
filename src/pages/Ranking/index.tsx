@@ -44,7 +44,7 @@ export function Ranking() {
 
         <Dialog>
           <DialogTrigger asChild>
-            <Button>
+            <Button className="dark:bg-indigo-500 text-gray-100 dark:hover:bg-indigo-600 transition-all">
               <PlusCircle className="w-4 h-4 mr-2" />
               Adicionar competidor
             </Button>

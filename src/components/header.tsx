@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { ModeToggle } from "./mode-toggle";
 
 export function Header() {
@@ -5,24 +6,36 @@ export function Header() {
     <header className="my-5">
       <nav className="flex justify-between items-center">
         <div className=" flex gap-3">
-          <a
-            href="/ranking"
-            className="dark:hover:text-indigo-500 transition-all"
+          <NavLink
+            to="/ranking"
+            className={({ isActive }) =>
+              isActive
+                ? " text-indigo-500 font-semibold"
+                : " hover:text-indigo-500 transition-all"
+            }
           >
             Ranking
-          </a>
-          <a
-            href="/competitors"
-            className="dark:hover:text-indigo-500 transition-all"
+          </NavLink>
+          <NavLink
+            to="/competitors"
+            className={({ isActive }) =>
+              isActive
+                ? " text-indigo-500 font-semibold"
+                : " hover:text-indigo-500 transition-all"
+            }
           >
             Competidores
-          </a>
-          <a
-            href="/categories"
-            className="dark:hover:text-indigo-500 transition-all"
+          </NavLink>
+          <NavLink
+            to="/categories"
+            className={({ isActive }) =>
+              isActive
+                ? " text-indigo-500 font-semibold"
+                : " hover:text-indigo-500 transition-all"
+            }
           >
             Categorias
-          </a>
+          </NavLink>
         </div>
 
         <ModeToggle />
