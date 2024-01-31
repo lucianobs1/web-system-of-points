@@ -2,7 +2,7 @@ import { ModeToggle } from "./mode-toggle";
 
 export function Header() {
   return (
-    <header className="p-6 max-w-4xl mx-auto space-y-6">
+    <header className="my-5">
       <nav className="flex justify-between items-center">
         <div className=" flex gap-3">
           <a
