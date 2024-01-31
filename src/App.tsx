@@ -1,7 +1,10 @@
+import { ThemeProvider } from "./components/theme-provider";
+import { Ranking } from "./pages/ranking";
+
 export function App() {
   return (
-    <>
-      <h1>System of points</h1>
-    </>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Ranking />
+    </ThemeProvider>
   );
 }
