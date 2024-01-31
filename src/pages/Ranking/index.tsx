@@ -33,7 +33,7 @@ export function Ranking() {
           <Input
             name="name"
             placeholder="Nome do competidor"
-            className="w-auto border-b-violet-900"
+            className="w-auto py-6 px-4"
           />
 
           <Button type="submit" variant="link">
@@ -54,25 +54,29 @@ export function Ranking() {
             <DialogHeader>
               <DialogTitle>Novo Competidor</DialogTitle>
               <DialogDescription>Criar um novo competidor</DialogDescription>
-
-              <form>
-                <div className="space-y-6">
-                  <Input placeholder="Nome" name="name" className="w-auto" />
-                  <Input
-                    placeholder="Sobrenome"
-                    name="surname"
-                    className="w-auto"
-                  />
-                </div>
-
-                <DialogFooter className="mt-6">
-                  <Button type="button" variant="outline">
-                    Cancelar
-                  </Button>
-                  <Button type="submit">Salvar</Button>
-                </DialogFooter>
-              </form>
             </DialogHeader>
+
+            <form>
+              <div className="space-y-6">
+                <Input
+                  placeholder="Nome"
+                  name="name"
+                  className="w-auto py-6 px-4"
+                />
+                <Input
+                  placeholder="Sobrenome"
+                  name="surname"
+                  className="w-auto  py-6 px-4"
+                />
+              </div>
+
+              <DialogFooter className="mt-4">
+                <Button type="button" variant="outline">
+                  Cancelar
+                </Button>
+                <Button type="submit">Salvar</Button>
+              </DialogFooter>
+            </form>
           </DialogContent>
         </Dialog>
       </div>
