@@ -1,10 +1,10 @@
-import { ThemeProvider } from "./components/theme-provider";
-import { Ranking } from "./pages/ranking";
+import { Home } from "./pages/Home";
+import { ThemeProvider } from "./providers/theme-provider";
 
 export function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Ranking />
+      <Home />
     </ThemeProvider>
   );
 }

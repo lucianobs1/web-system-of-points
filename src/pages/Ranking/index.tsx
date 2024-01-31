@@ -19,10 +19,13 @@ import {
 } from "@/components/ui/table";
 import { PlusCircle, Search } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
+import { Header } from "@/components/header";
 
 export function Ranking() {
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-6">
+      <Header />
+
       <div className="flex justify-between">
         <h1 className="text-3xl font-bold">Ranking</h1>
         <ModeToggle />
