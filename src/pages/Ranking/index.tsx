@@ -19,8 +19,36 @@ import {
 } from "@/components/ui/table";
 import { PlusCircle, Search } from "lucide-react";
 import { Header } from "@/components/header";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup
+  .object({
+    name: yup
+      .string()
+      .trim("O campo não pode ser vazio")
+      .min(3, "Mínimo de três letras")
+      .required("Nome obrigatório"),
+    surname: yup.string().trim("O campo não pode ser vazio").min(4).required(),
+  })
+  .required();
+
+type FormData = yup.InferType<typeof schema>;
 
 export function Ranking() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({ resolver: yupResolver(schema) });
+
+  const onSubmit = ({ name, surname }: FormData) => {
+    console.log(name, surname);
+    reset();
+  };
+
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-6">
       <Header />
@@ -56,18 +84,28 @@ export function Ranking() {
               <DialogDescription>Criar um novo competidor</DialogDescription>
             </DialogHeader>
 
-            <form>
-              <div className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="space-y-2">
                 <Input
+                  {...register("name", { required: true })}
                   placeholder="Nome"
-                  name="name"
                   className="w-auto py-6 px-4"
                 />
+                {errors.name && (
+                  <div className="text-sm text-red-500">
+                    Nome é obrigatório!
+                  </div>
+                )}
                 <Input
+                  {...register("surname", { required: true })}
                   placeholder="Sobrenome"
-                  name="surname"
                   className="w-auto  py-6 px-4"
                 />
+                {errors.surname && (
+                  <div className="text-sm  text-red-500">
+                    Sobrenome é obrigatório!
+                  </div>
+                )}
               </div>
 
               <DialogFooter className="mt-4">
